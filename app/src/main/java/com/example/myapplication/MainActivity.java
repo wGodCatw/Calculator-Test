@@ -1,9 +1,11 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         Button multiplyButton = findViewById(R.id.multiplyButton);
         Button divisionButton = findViewById(R.id.divisionButton);
         Button equalsButton = findViewById(R.id.equalsButton);
+        Button pointButton = findViewById(R.id.pointButton);
         TextView textSolution = findViewById(R.id.textSolution);
 
 
@@ -220,7 +223,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String text = textSolution.getText().toString();
                 if (!Objects.equals(num1, "") && !Objects.equals(num2, "")) {
-                    textSolution.setText(String.valueOf(Integer.parseInt(num1) + Integer.parseInt(num2)));
+                    textSolution.setText(String.valueOf(Double.parseDouble(num1) + Double.parseDouble(num2)));
+                    if (textSolution.getText().toString().endsWith(".0")) {
+                        textSolution.setText(textSolution.getText().toString().substring(0, textSolution.getText().length() - 2));
+                    }
                     num1 = textSolution.getText().toString();
                     num2 = "";
                     textSolution.setText(textSolution.getText().toString() + "+");
@@ -243,7 +249,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String text = textSolution.getText().toString();
                 if (!Objects.equals(num1, "") && !Objects.equals(num2, "")) {
-                    textSolution.setText(String.valueOf(Integer.parseInt(num1) - Integer.parseInt(num2)));
+                    textSolution.setText(String.valueOf(Double.parseDouble(num1) - Double.parseDouble(num2)));
+                    if (textSolution.getText().toString().endsWith(".0")) {
+                        textSolution.setText(textSolution.getText().toString().substring(0, textSolution.getText().length() - 2));
+                    }
                     num1 = textSolution.getText().toString();
                     num2 = "";
                     textSolution.setText(textSolution.getText().toString() + "-");
@@ -266,7 +275,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String text = textSolution.getText().toString();
                 if (!Objects.equals(num1, "") && !Objects.equals(num2, "")) {
-                    textSolution.setText(String.valueOf(Integer.parseInt(num1) / Integer.parseInt(num2)));
+                    textSolution.setText(String.valueOf(Double.parseDouble(num1) / Double.parseDouble(num2)));
+                    if (textSolution.getText().toString().endsWith(".0")) {
+                        textSolution.setText(textSolution.getText().toString().substring(0, textSolution.getText().length() - 2));
+                    }
                     num1 = textSolution.getText().toString();
                     num2 = "";
                     textSolution.setText(textSolution.getText().toString() + "/");
@@ -289,7 +301,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String text = textSolution.getText().toString();
                 if (!Objects.equals(num1, "") && !Objects.equals(num2, "")) {
-                    textSolution.setText(String.valueOf(Integer.parseInt(num1) * Integer.parseInt(num2)));
+                    textSolution.setText(String.valueOf(Double.parseDouble(num1) * Double.parseDouble(num2)));
+                    if (textSolution.getText().toString().endsWith(".0")) {
+                        textSolution.setText(textSolution.getText().toString().substring(0, textSolution.getText().length() - 2));
+                    }
                     num1 = textSolution.getText().toString();
                     num2 = "";
                     textSolution.setText(textSolution.getText().toString() + "*");
@@ -308,28 +323,65 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        pointButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String text = textSolution.getText().toString();
+                if (!text.endsWith("+") && !text.endsWith("-") && !text.endsWith("*") && !text.endsWith("/")) {
+                    if ((text.contains("*") || text.contains("/") || text.contains("+") || text.contains("-")) && (!text.endsWith(".") && !num2.contains("."))) {
+
+                        num2 = num2 + ".";
+                        textSolution.setText(textSolution.getText().toString() + ".");
+                    } else if (!textSolution.getText().toString().endsWith(".") && !num1.contains(".") && num2.equals("")) {
+                        num1 = num1 + ".";
+                        textSolution.setText(textSolution.getText().toString() + ".");
+                    }
+                }
+            }
+        });
+
         equalsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String text = textSolution.getText().toString();
                 if (textSolution.getText() != "") {
                     if (multiply && !text.endsWith("*")) {
-                        textSolution.setText(String.valueOf(Integer.parseInt(num1) * Integer.parseInt(num2)));
+                        textSolution.setText(String.valueOf(Double.parseDouble(num1) * Double.parseDouble(num2)));
+                        if (textSolution.getText().toString().endsWith(".0")) {
+                            textSolution.setText(textSolution.getText().toString().substring(0, textSolution.getText().length() - 2));
+                        }
                         num1 = textSolution.getText().toString();
                         num2 = "";
                         multiply = divide = minus = plus = false;
                     } else if (divide && !text.endsWith("/")) {
-                        textSolution.setText(String.valueOf(Integer.parseInt(num1) / Integer.parseInt(num2)));
+
+                        textSolution.setText(String.valueOf(Double.parseDouble(num1) / Double.parseDouble(num2)));
+                        if (textSolution.getText().toString().endsWith(".0")) {
+                            textSolution.setText(textSolution.getText().toString().substring(0, textSolution.getText().length() - 2));
+                        }
+                        if (textSolution.getText().toString().equals("Infinity")) {
+                            textSolution.setText("");
+                            multiply = divide = minus = plus = false;
+                            num1 = num2 = "";
+                            Toast.makeText(getApplication().getBaseContext(), "Math ERROR", Toast.LENGTH_LONG).show();
+                        }
                         num1 = textSolution.getText().toString();
                         num2 = "";
                         multiply = divide = minus = plus = false;
+
                     } else if (minus && !text.endsWith("-")) {
-                        textSolution.setText(String.valueOf(Integer.parseInt(num1) - Integer.parseInt(num2)));
+                        textSolution.setText(String.valueOf(Double.parseDouble(num1) - Double.parseDouble(num2)));
+                        if (textSolution.getText().toString().endsWith(".0")) {
+                            textSolution.setText(textSolution.getText().toString().substring(0, textSolution.getText().length() - 2));
+                        }
                         num1 = textSolution.getText().toString();
                         num2 = "";
                         multiply = divide = minus = plus = false;
                     } else if (plus && !text.endsWith("+")) {
-                        textSolution.setText(String.valueOf(Integer.parseInt(num1) + Integer.parseInt(num2)));
+                        textSolution.setText(String.valueOf(Double.parseDouble(num1) + Double.parseDouble(num2)));
+                        if (textSolution.getText().toString().endsWith(".0")) {
+                            textSolution.setText(textSolution.getText().toString().substring(0, textSolution.getText().length() - 2));
+                        }
                         num1 = textSolution.getText().toString();
                         num2 = "";
                         multiply = divide = minus = plus = false;
