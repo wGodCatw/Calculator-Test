@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="numberButton">
+        <item name="android:textSize">48sp</item>
+        <item name="android:textColor">#F7F7F7</item>
+    </style>
+</resources>

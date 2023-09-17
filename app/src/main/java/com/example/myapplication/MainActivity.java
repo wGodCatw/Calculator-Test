@@ -1,15 +1,13 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,23 +27,24 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button oneButton = findViewById(R.id.oneButton);
-        Button twoButton = findViewById(R.id.twoButton);
-        Button threeButton = findViewById(R.id.threeButton);
-        Button fourButton = findViewById(R.id.fourButton);
-        Button fiveButton = findViewById(R.id.fiveButton);
-        Button sixButton = findViewById(R.id.sixButton);
-        Button sevenButton = findViewById(R.id.sevenButton);
-        Button eightButton = findViewById(R.id.eightButton);
-        Button nineButton = findViewById(R.id.nineButton);
-        Button zeroButton = findViewById(R.id.zeroButton);
-        Button clearButton = findViewById(R.id.clearButton);
-        Button additionButton = findViewById(R.id.additionButton);
-        Button subtractButton = findViewById(R.id.subtractButton);
-        Button multiplyButton = findViewById(R.id.multiplyButton);
-        Button divisionButton = findViewById(R.id.divisionButton);
-        Button equalsButton = findViewById(R.id.equalsButton);
-        Button pointButton = findViewById(R.id.pointButton);
+
+        ImageButton oneButton = findViewById(R.id.oneButton);
+        ImageButton twoButton = findViewById(R.id.twoButton);
+        ImageButton threeButton = findViewById(R.id.threeButton);
+        ImageButton fourButton = findViewById(R.id.fourButton);
+        ImageButton fiveButton = findViewById(R.id.fiveButton);
+        ImageButton sixButton = findViewById(R.id.sixButton);
+        ImageButton sevenButton = findViewById(R.id.sevenButton);
+        ImageButton eightButton = findViewById(R.id.eightButton);
+        ImageButton nineButton = findViewById(R.id.nineButton);
+        ImageButton zeroButton = findViewById(R.id.zeroButton);
+        ImageButton clearButton = findViewById(R.id.clearButton);
+        ImageButton additionButton = findViewById(R.id.additionButton);
+        ImageButton subtractButton = findViewById(R.id.subtractButton);
+        ImageButton multiplyButton = findViewById(R.id.multiplyButton);
+        ImageButton divisionButton = findViewById(R.id.divisionButton);
+        ImageButton equalsButton = findViewById(R.id.equalsButton);
+        ImageButton pointButton = findViewById(R.id.pointButton);
         TextView textSolution = findViewById(R.id.textSolution);
 
 
@@ -212,9 +211,8 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     num1 = num1 + "0";
                 }
-                if (textSolution.getText() != "") {
-                    textSolution.setText(textSolution.getText() + "0");
-                }
+                textSolution.setText(textSolution.getText() + "0");
+
             }
         });
 
@@ -232,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
                     textSolution.setText(textSolution.getText().toString() + "+");
                     plus = true;
                     minus = multiply = divide = false;
-                } else if (text.endsWith("*") || text.endsWith("/") || text.endsWith("-")) {
+                } else if (text.endsWith("×") || text.endsWith("÷") || text.endsWith("-")) {
                     textSolution.setText(text.substring(0, text.length() - 1) + "+");
                     plus = true;
                     minus = multiply = divide = false;
@@ -258,7 +256,7 @@ public class MainActivity extends AppCompatActivity {
                     textSolution.setText(textSolution.getText().toString() + "-");
                     minus = true;
                     multiply = plus = divide = false;
-                } else if (text.endsWith("+") || text.endsWith("/") || text.endsWith("*")) {
+                } else if (text.endsWith("+") || text.endsWith("÷") || text.endsWith("×")) {
                     textSolution.setText(text.substring(0, text.length() - 1) + "-");
                     minus = true;
                     multiply = plus = divide = false;
@@ -281,15 +279,15 @@ public class MainActivity extends AppCompatActivity {
                     }
                     num1 = textSolution.getText().toString();
                     num2 = "";
-                    textSolution.setText(textSolution.getText().toString() + "/");
+                    textSolution.setText(textSolution.getText().toString() + "÷");
                     divide = true;
                     minus = plus = multiply = false;
-                } else if (text.endsWith("+") || text.endsWith("*") || text.endsWith("-")) {
-                    textSolution.setText(text.substring(0, text.length() - 1) + "/");
+                } else if (text.endsWith("+") || text.endsWith("×") || text.endsWith("-")) {
+                    textSolution.setText(text.substring(0, text.length() - 1) + "÷");
                     divide = true;
                     minus = plus = multiply = false;
                 } else if (!text.equals("") && !divide) {
-                    textSolution.setText(text + "/");
+                    textSolution.setText(text + "÷");
                     divide = true;
                     minus = plus = multiply = false;
                 }
@@ -307,16 +305,16 @@ public class MainActivity extends AppCompatActivity {
                     }
                     num1 = textSolution.getText().toString();
                     num2 = "";
-                    textSolution.setText(textSolution.getText().toString() + "*");
+                    textSolution.setText(textSolution.getText().toString() + "×");
                     multiply = true;
                     minus = plus = divide = false;
 
-                } else if (text.endsWith("+") || text.endsWith("/") || text.endsWith("-")) {
-                    textSolution.setText(text.substring(0, text.length() - 1) + "*");
+                } else if (text.endsWith("+") || text.endsWith("÷") || text.endsWith("-")) {
+                    textSolution.setText(text.substring(0, text.length() - 1) + "×");
                     multiply = true;
                     minus = plus = divide = false;
                 } else if (!text.equals("") && !multiply) {
-                    textSolution.setText(text + "*");
+                    textSolution.setText(text + "×");
                     multiply = true;
                     minus = plus = divide = false;
                 }
@@ -327,8 +325,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String text = textSolution.getText().toString();
-                if (!text.endsWith("+") && !text.endsWith("-") && !text.endsWith("*") && !text.endsWith("/")) {
-                    if ((text.contains("*") || text.contains("/") || text.contains("+") || text.contains("-")) && (!text.endsWith(".") && !num2.contains("."))) {
+                if (!text.endsWith("+") && !text.endsWith("-") && !text.endsWith("×") && !text.endsWith("÷")) {
+                    if ((text.contains("×") || text.contains("÷") || text.contains("+") || text.contains("-")) && (!text.endsWith(".") && !num2.contains("."))) {
 
                         num2 = num2 + ".";
                         textSolution.setText(textSolution.getText().toString() + ".");
@@ -345,7 +343,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String text = textSolution.getText().toString();
                 if (textSolution.getText() != "") {
-                    if (multiply && !text.endsWith("*")) {
+                    if (multiply && !text.endsWith("×")) {
                         textSolution.setText(String.valueOf(Double.parseDouble(num1) * Double.parseDouble(num2)));
                         if (textSolution.getText().toString().endsWith(".0")) {
                             textSolution.setText(textSolution.getText().toString().substring(0, textSolution.getText().length() - 2));
@@ -353,7 +351,7 @@ public class MainActivity extends AppCompatActivity {
                         num1 = textSolution.getText().toString();
                         num2 = "";
                         multiply = divide = minus = plus = false;
-                    } else if (divide && !text.endsWith("/")) {
+                    } else if (divide && !text.endsWith("÷")) {
 
                         textSolution.setText(String.valueOf(Double.parseDouble(num1) / Double.parseDouble(num2)));
                         if (textSolution.getText().toString().endsWith(".0")) {
