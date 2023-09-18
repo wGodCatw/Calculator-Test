@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/background"
     android:background="@color/spaceGrey"
     tools:context=".MainActivity"
     tools:layout_editor_absoluteX="0dp"
@@ -14,6 +15,7 @@
         style="@style/Widget.AppCompat.TextView"
         android:layout_width="347dp"
         android:layout_height="374dp"
+        android:gravity="bottom|right"
         android:textColor="@color/dyingStar"
         android:textColorHint="@color/dyingStar"
         android:textSize="48sp"
@@ -21,7 +23,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.207" />
+        app:layout_constraintVertical_bias="0.121" />
 
     <LinearLayout
         android:id="@+id/linearLayout5"
@@ -41,14 +43,31 @@
             android:layout_height="50dp"
             android:layout_weight="1" />
 
-        <Switch
-            android:id="@+id/switch3"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_dark" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/themeSwitch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:scaleY="1.8"
+            android:scaleX="1.8"
+            app:thumbTint="@drawable/switch_thumb"
+            app:trackTint="@color/risingSun" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:text="Switch"
-            android:textColor="#FFFFFF" />
+            app:srcCompat="@drawable/ic_light" />
 
         <View
             android:layout_width="0dp"
@@ -63,7 +82,7 @@
             android:src="@drawable/clear_icon" />
 
         <View
-            android:layout_width="0dp"
+            android:layout_width="7dp"
             android:layout_height="50dp"
             android:layout_weight="1" />
 
@@ -75,7 +94,7 @@
             android:src="@drawable/divide_icon" />
 
         <View
-            android:layout_width="0dp"
+            android:layout_width="7dp"
             android:layout_height="50dp"
             android:layout_weight="1" />
 
@@ -115,7 +134,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/num_one_icon" />
+            android:src="@drawable/one" />
 
         <View
             android:layout_width="0dp"

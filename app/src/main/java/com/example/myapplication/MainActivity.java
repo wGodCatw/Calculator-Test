@@ -7,6 +7,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import java.util.Objects;
 
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ConstraintLayout background = findViewById(R.id.background);
+
         ImageButton oneButton = findViewById(R.id.oneButton);
         ImageButton twoButton = findViewById(R.id.twoButton);
         ImageButton threeButton = findViewById(R.id.threeButton);
@@ -46,6 +51,15 @@ public class MainActivity extends AppCompatActivity {
         ImageButton equalsButton = findViewById(R.id.equalsButton);
         ImageButton pointButton = findViewById(R.id.pointButton);
         TextView textSolution = findViewById(R.id.textSolution);
+
+        SwitchMaterial themeSwitch = findViewById(R.id.themeSwitch);
+
+        themeSwitch.setOnCheckedChangeListener(((buttonView, isChecked) -> {
+            if(isChecked){
+                background.setBackgroundResource(R.color.dyingStar);
+            } else
+                background.setBackgroundResource(R.color.spaceGrey);
+        }));
 
 
         oneButton.setOnClickListener(new View.OnClickListener() {
@@ -357,7 +371,7 @@ public class MainActivity extends AppCompatActivity {
                         if (textSolution.getText().toString().endsWith(".0")) {
                             textSolution.setText(textSolution.getText().toString().substring(0, textSolution.getText().length() - 2));
                         }
-                        if (textSolution.getText().toString().equals("Infinity")) {
+                        if (textSolution.getText().toString().equals("Infinity") || textSolution.getText().toString().equals("-Infinity")) {
                             textSolution.setText("");
                             multiply = divide = minus = plus = false;
                             num1 = num2 = "";
