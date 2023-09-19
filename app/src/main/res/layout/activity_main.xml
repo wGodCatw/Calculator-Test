@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/background"
     android:background="@color/spaceGrey"
     tools:context=".MainActivity"
     tools:layout_editor_absoluteX="0dp"
@@ -13,9 +13,9 @@
     <TextView
         android:id="@+id/textSolution"
         style="@style/Widget.AppCompat.TextView"
-        android:layout_width="394dp"
-        android:layout_height="456dp"
-        android:gravity="bottom|right"
+        android:layout_width="392dp"
+        android:layout_height="409dp"
+        android:gravity="bottom|end"
         android:textColor="@color/dyingStar"
         android:textColorHint="@color/dyingStar"
         android:textSize="60sp"
@@ -57,8 +57,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:scaleY="1.8"
             android:scaleX="1.8"
+            android:scaleY="1.8"
             app:thumbTint="@drawable/switch_thumb"
             app:trackTint="@color/risingSun" />
 
@@ -80,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/clear_icon" />
+            android:src="@drawable/clear" />
 
         <View
             android:layout_width="7dp"
@@ -92,7 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/divide_icon" />
+            android:src="@drawable/divide" />
 
         <View
             android:layout_width="7dp"
@@ -188,7 +188,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/plus_icon" />
+            android:src="@drawable/plus" />
 
         <View
             android:layout_width="0dp"
@@ -230,7 +230,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/num_four_icon" />
+            android:src="@drawable/four" />
 
         <View
             android:layout_width="0dp"
@@ -250,7 +250,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/num_five_icon" />
+            android:src="@drawable/five" />
 
         <View
             android:layout_width="0dp"
@@ -271,7 +271,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/num_six_icon" />
+            android:src="@drawable/six" />
 
         <View
             android:layout_width="0dp"
@@ -283,7 +283,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/minus_icon" />
+            android:src="@drawable/minus" />
 
         <View
             android:layout_width="0dp"
@@ -323,7 +323,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/num_seven_icon" />
+            android:src="@drawable/seven" />
 
         <View
             android:layout_width="0dp"
@@ -343,7 +343,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/num_eight_icon" />
+            android:src="@drawable/eight" />
 
         <View
             android:layout_width="0dp"
@@ -363,7 +363,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/num_nine_icon" />
+            android:src="@drawable/nine" />
 
         <View
             android:layout_width="0dp"
@@ -375,7 +375,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/multiply_icon" />
+            android:src="@drawable/multiply" />
 
         <View
             android:layout_width="0dp"
@@ -435,10 +435,10 @@
 
         <ImageButton
             android:id="@+id/zeroButton"
-            android:layout_width="wrap_content"
+            android:layout_width="167dp"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/zero_icon" />
+            android:src="@drawable/zero" />
 
         <View
             android:layout_width="0dp"
@@ -458,7 +458,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/point_icon" />
+            android:src="@drawable/point" />
 
         <View
             android:layout_width="0dp"
@@ -470,7 +470,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/equals_icon" />
+            android:src="@drawable/equals" />
 
         <View
             android:layout_width="0dp"

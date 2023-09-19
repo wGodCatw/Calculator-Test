@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -53,12 +54,16 @@ public class MainActivity extends AppCompatActivity {
         TextView textSolution = findViewById(R.id.textSolution);
 
         SwitchMaterial themeSwitch = findViewById(R.id.themeSwitch);
+        Resources.Theme theme = this.getTheme();
 
         themeSwitch.setOnCheckedChangeListener(((buttonView, isChecked) -> {
-            if(isChecked){
+            if (isChecked) {
                 background.setBackgroundResource(R.color.dyingStar);
-            } else
+                textSolution.setTextColor(getResources().getColor(R.color.spaceGrey, theme));
+            } else {
                 background.setBackgroundResource(R.color.spaceGrey);
+                textSolution.setTextColor(getResources().getColor(R.color.dyingStar, theme));
+            }
         }));
 
 
