@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         ConstraintLayout background = findViewById(R.id.background);
 
         ImageButton oneButton = findViewById(R.id.oneButton);
