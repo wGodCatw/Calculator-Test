@@ -8,6 +8,7 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/ic_launcher_calc"
         android:label="Calculator"
+
         android:roundIcon="@drawable/ic_launcher_calc"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
@@ -15,6 +16,7 @@
 
         <activity
             android:name="com.example.Calculator.MainActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
