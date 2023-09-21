@@ -1,11 +1,10 @@
-package com.example.myapplication;
+package com.example.Calculator;
 
 import android.annotation.SuppressLint;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,7 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.google.android.material.switchmaterial.SwitchMaterial;
+import com.example.myapplication.R;
 
 import java.util.Objects;
 
