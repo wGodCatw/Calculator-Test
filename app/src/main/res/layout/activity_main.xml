@@ -40,38 +40,21 @@
         app:layout_constraintVertical_bias="1.0">
 
         <View
-            android:layout_width="0dp"
+            android:layout_width="36dp"
             android:layout_height="50dp"
             android:layout_weight="1" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/lightbulb_dark" />
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
+        <Switch
             android:id="@+id/themeSwitch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:scaleX="1.8"
-            android:scaleY="1.8"
-            app:thumbTint="@drawable/switch_thumb"
-            app:trackTint="@color/risingSun" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/lightbulb_light" />
+            android:scaleX="1.5"
+            android:thumb="@drawable/ic_thumb"
+            android:track="@drawable/bg_track"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         <View
-            android:layout_width="0dp"
+            android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1" />
 
@@ -335,7 +318,7 @@
 
         <ImageButton
             android:id="@+id/zeroButton"
-            android:layout_width="167dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:src="@drawable/zero" />

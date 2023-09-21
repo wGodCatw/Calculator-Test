@@ -1,9 +1,12 @@
 package com.example.myapplication;
 
+import android.annotation.SuppressLint;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         ImageButton pointButton = findViewById(R.id.pointButton);
         TextView textSolution = findViewById(R.id.textSolution);
 
-        SwitchMaterial themeSwitch = findViewById(R.id.themeSwitch);
+        @SuppressLint("UseSwitchCompatOrMaterialCode") Switch themeSwitch = findViewById(R.id.themeSwitch);
         Resources.Theme theme = this.getTheme();
 
         themeSwitch.setOnCheckedChangeListener(((buttonView, isChecked) -> {
